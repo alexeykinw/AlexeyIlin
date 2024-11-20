@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html class="no-js ss-preload" lang="en">
+<head>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>Train</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+
+</head>
+
+<style>
+   .notice {
+        position: relative;
+        margin: 1em;
+        background: #F9F9F9;
+        padding: 1em 1em 1em 2em;
+        border-left: 4px solid #DDD;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.125);
+    }
+
+    .notice:before {
+        position: absolute;
+        top: 50%;
+        margin-top: -17px;
+        left: -17px;
+        background-color: #DDD;
+        color: #FFF;
+        width: 30px;
+        height: 30px;
+        border-radius: 100%;
+        text-align: center;
+        line-height: 30px;
+        text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
+    }
+
+    .info {
+    border-color: #0074D9;
+    }
+
+    .info:before {
+        content: "i";
+        background-color: #0074D9;
+    }
+    /* .round{
+        border-radius:50%;
+    } */
+
+</style>
+
+<body id="top">
+
+        <main class="s-content">
+
+            <!-- ### works
+            ================================================== -->
+            <!-- <section id="works" class="s-works target-section" > -->
+
+
+                <div class="row works-portfolio">
+
+                    <div class="column lg-12">
+    
+                        <ul class="folio-list row block-lg-one-half block-stack-on-1000" >
+
+                            <li class="folio-list__item column" data-animate-el>
+                                <a class="folio-list__item-link" href="#modal-01">
+                                    <div class="folio-list__item-pic">
+                                        <img src="images/portfolio/circles/msu_circles.png" alt="">
+                                    </div>
+                                    
+                                    <div class="folio-list__item-text">
+                                        <div class="folio-list__item-cat">
+                                            Образование
+                                        </div>
+                                        <div class="folio-list__item-title">
+                                            МГУ им М.В.Ломоносова
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="folio-list__proj-link" href="#" title="project link">
+                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                                </a>
+                            </li> <!--end folio-list__item -->
+
+                            <li class="folio-list__item column" data-animate-el>
+                                <a class="folio-list__item-link" href="#modal-02">
+                                    <div class="folio-list__item-pic">
+                                        <img src="images/portfolio/circles/google_pm_circles.png" alt="">
+                                    </div>
+                                    
+                                    <div class="folio-list__item-text">
+                                        <div class="folio-list__item-cat">
+                                            Управление проектами
+                                        </div>
+                                        <div class="folio-list__item-title">
+                                            Google Project Management Certificate
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="folio-list__proj-link" href="#" title="project link">
+                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                                </a>
+                            </li> <!--end folio-list__item -->
+
+                            <li class="folio-list__item column" data-animate-el>
+                                <a class="folio-list__item-link" href="#modal-03">
+                                    <div class="folio-list__item-pic">
+                                        <img src="images/portfolio/circles/pmi_acp_circles.png" alt="">
+                                    </div>
+                                    
+                                    <div class="folio-list__item-text">
+                                        <div class="folio-list__item-cat">
+                                            Управление проектами
+                                        </div>
+                                        <div class="folio-list__item-title">
+                                            PMI Agile Certified Practitioner (PMI-ACP)®
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="folio-list__proj-link" href="#" title="project link">
+                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                                </a>
+                            
+                            </li> <!--end folio-list__item -->
+
+                            <li class="folio-list__item column" data-animate-el>
+                                <a class="folio-list__item-link" href="#modal-04">
+                                    <div class="folio-list__item-pic">
+                                        <img src="images/portfolio/circles/youtubepreview_circles.png" alt="">
+                                    </div>
+                                    
+                                    <div class="folio-list__item-text">
+                                        <div class="folio-list__item-cat">
+                                            Публикации
+                                        </div>
+                                        <div class="folio-list__item-title">
+                                            Как выглядят карты для автономного транспорта
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="folio-list__proj-link" href="#" title="project link">
+                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                                </a>
+                            </li> <!--end folio-list__item -->
+
+                            <li class="folio-list__item column" data-animate-el>
+                                <a class="folio-list__item-link" href="#modal-05">
+                                    <div class="folio-list__item-pic">
+                                        <img src="images/portfolio/circles/expert_cirlces.png" alt="">
+                                    </div>
+                                    
+                                    <div class="folio-list__item-text">
+                                        <div class="folio-list__item-cat">
+                                            Публикации
+                                        </div>
+                                        <div class="folio-list__item-title">
+                                            Журнал "Эксперт" - Карты кроются в деталях
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="folio-list__proj-link" href="#" title="project link">
+                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                                </a>
+                            </li> <!--end folio-list__item -->
+
+                            <li class="folio-list__item column" data-animate-el>
+                                <a class="folio-list__item-link" href="#modal-06">
+                                    <div class="folio-list__item-pic">
+                                        <img src="images/portfolio/circles/youtube_circles.png" alt="">
+                                    </div>
+                                    
+                                    <div class="folio-list__item-text">
+                                        <div class="folio-list__item-cat">
+                                            Управление продуктом
+                                        </div>
+                                        <div class="folio-list__item-title">
+                                            Демо HD-map для автономного транспорта
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="folio-list__proj-link" href="#" title="project link">
+                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                                </a>
+                            </li> <!--end folio-list__item -->
+
+                            <li class="folio-list__item column" data-animate-el>
+                                <a class="folio-list__item-link" href="#modal-07">
+                                    <div class="folio-list__item-pic">
+                                        <img src="images/portfolio/circles/stepik_circles.png" alt="">
+                                    </div>
+                                    
+                                    <div class="folio-list__item-text">
+                                        <div class="folio-list__item-cat">
+                                            Программирование
+                                        </div>
+                                        <div class="folio-list__item-title">
+                                            Обучение на Stepik
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="folio-list__proj-link" href="#" title="project link">
+                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                                </a>
+                            </li> <!--end folio-list__item -->
+
+                            <li class="folio-list__item column" data-animate-el>
+                                <a class="folio-list__item-link" href="#modal-08">
+                                    <div class="folio-list__item-pic">
+                                        <img src="images/portfolio/yandex.png" alt="">
+                                    </div>
+                                    
+                                    <div class="folio-list__item-text">
+                                        <div class="folio-list__item-cat">
+                                            Управление командой
+                                        </div>
+                                        <div class="folio-list__item-title">
+                                            Обучение в Яндексе
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="folio-list__proj-link" href="#" title="project link">
+                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                                </a>
+                            </li> <!--end folio-list__item -->
+
+                            <li class="folio-list__item column" data-animate-el>
+                                <a class="folio-list__item-link" href="#modal-09">
+                                    <div class="folio-list__item-pic">
+                                        <img src="images/portfolio/circles/inlearn_circles.png" alt="">
+                                    </div>
+                                    
+                                    <div class="folio-list__item-text">
+                                        <div class="folio-list__item-cat">
+                                            Софт скиллы
+                                        </div>
+                                        <div class="folio-list__item-title">
+                                            Обучение на Linkedin
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="folio-list__proj-link" href="#" title="project link">
+                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                                </a>
+                            </li> <!--end folio-list__item -->
+
+                            <li class="folio-list__item column" data-animate-el>
+                                <a class="folio-list__item-link" href="#modal-10">
+                                    <div class="folio-list__item-pic">
+                                        <img src="images/portfolio/circles/books_cirlces.png" alt="">
+                                    </div>
+                                    
+                                    <div class="folio-list__item-text">
+                                        <div class="folio-list__item-cat">
+                                            Саморазвитие
+                                        </div>
+                                        <div class="folio-list__item-title">
+                                            Книги
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="folio-list__proj-link" href="#" title="project link">
+                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                                </a>
+                            </li> <!--end folio-list__item -->
+
+                        </ul> <!-- end folio-list -->
+
+                    </div> <!-- end column -->
+
+
+                    <!-- Modal Templates Popup
+                    -------------------------------------------- -->
+                    <div id="modal-01" hidden>
+                        <div class="modal-popup">
+                            <img src="images/portfolio/msu.jpg" alt="">
+                
+                            <div class="modal-popup__desc">
+                                <h5>МГУ им М.В.Ломоносова</h5>
+                                <p>Магистратура<br>
+                                Географический факультет - Картография и Геоинформатика</p>
+                                <p>Бакалавриат<br>
+                                Географический факультет - Экология и Природопользование</p>
+                                <ul class="modal-popup__cat">
+                                    <li>Образование</li>
+                                </ul>
+                            </div>
+                
+                            <!-- <a href="https://www.behance.net/" class="modal-popup__details">Project link</a> -->
+                        </div>
+                    </div> <!-- end modal -->
+
+                    <div id="modal-02" hidden>
+                        <div class="modal-popup">
+                            <img src="images/portfolio/google_pm.png" width="100%" height="60%" alt="">
+                
+                            <div class="modal-popup__desc">
+                                <h5>Google Project Management Certificate</h5>
+                                <p>Для получения сертификата были изучены курсы:<br>
+                                <div class="notice info">
+                                    Для доступа из РФ используйте VPN
+                                </div>
+                                <a target="_blank" href="https://coursera.org/share/f5f89ac3aeaba979e3f34dea928ff464">Foundations of Project Management</a><br>
+                                <a target="_blank" href="https://coursera.org/share/1b038c05b15270a6f421e33574994e98">Project Initiation: Starting a Successful Project</a><br>
+                                <a target="_blank" href="https://coursera.org/share/ed384162090bd9fdb6ea96591257be6d">Project Planning: Putting It All Together</a><br>
+                                <a target="_blank" href="https://coursera.org/share/92b2a63e6f6ef1e80f679eab38e785f8">Project Execution: Running the Project</a><br>          
+                                <a target="_blank" href="https://www.coursera.org/account/accomplishments/verify/9KRT7RYEZW2L?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course">Applying Project Management in the Real World</a><br>
+                                <a target="_blank" href="https://coursera.org/share/0dec984d9b4083892ef5c18c6de15305">Agile Project Management</a>
+                                </p>
+                                <ul class="modal-popup__cat">
+                                    <li>Управление проектами</li>
+                                </ul>
+                            </div>
+                
+                            <a target="_blank" href="https://www.credly.com/badges/c50fe5ce-4319-4c01-a4cb-28ca07aa1598/public_url" class="modal-popup__details">Сертификат</a>
+                        </div>
+                    </div> <!-- end modal -->
+
+                    <div id="modal-03" hidden>
+                        <div class="modal-popup">
+                            <img src="images/portfolio/pmi_acp_exam.png" alt="">
+                
+                            <div class="modal-popup__desc">
+                                <h5>PMI Agile Certified Practitioner (PMI-ACP)®</h5>
+                                <div class="notice info">
+                                    Для доступа из РФ используйте VPN
+                                </div>
+                                <p>
+                                <a target="_blank" href="https://www.linkedin.com/learning/certificates/a0e57afe005a2d1438b8cf6c4ad0288f800882a28b38d5721d3c99fde33fa65d?lipi=urn:li:page:d_flagship3_profile_view_base_certifications_details;WKWXNrgRRyakr96rqtOzqA==">Cert Prep: PMI Agile Certified Practitioner (PMI-ACP)®</a><br>
+                                <a target="_blank" href="https://www.linkedin.com/learning/certificates/1fa0c8b3bf9898671dca43d00335899663ea92b5b80fe8590584476219e9a81c?lipi=urn:li:page:d_flagship3_profile_view_base_certifications_details;WKWXNrgRRyakr96rqtOzqA==">Exam Tips: PMI Agile Certified Practitioner (PMI-ACP)®</a>
+                                </p>
+                                <ul class="modal-popup__cat">
+                                    <li>Управление проектами</li>
+                                </ul>
+                            </div>
+                
+                            <a target="_blank" href="https://www.linkedin.com/learning/certificates/1fa0c8b3bf9898671dca43d00335899663ea92b5b80fe8590584476219e9a81c?lipi=urn:li:page:d_flagship3_profile_view_base_certifications_details;WKWXNrgRRyakr96rqtOzqA==" class="modal-popup__details">Сертификат</a>
+                        </div>
+                    </div> <!-- end modal -->
+
+                    
+                    <div id="modal-04" hidden>
+                        <div class="modal-popup">
+
+                            <img src="images/portfolio/youtube_preview.jpg" alt="">
+                
+                            <div class="modal-popup__desc">
+                                <h5>Как выглядят карты для автономного транспорта</h5>
+                                <p>
+                                    Видео, для канала Яндекса в рубрике "Вопрос со звездочкой", в котором я рассказываю о высокоточных картах, которые помогают ориентироваться в городе
+                                    <iframe src="https://vk.com/video_ext.php?oid=-11283947&id=456240619&hd=1&autoplay=1" width="540" height="260" allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;" frameborder="0" allowfullscreen></iframe>
+                                </p>
+                                <ul class="modal-popup__cat">
+                                    <li>Публикации</li>
+                                </ul>
+                            </div>
+
+                            <a target="_blank" href="https://youtu.be/GYLsPpd9x2g?si=IxzUK171KjkfH7rN" class="modal-popup__details">Видео на YouTube</a>
+                        </div>
+                    </div> <!-- end modal -->
+
+                    <div id="modal-05" hidden>
+                        <div class="modal-popup">
+                            <img src="images/portfolio/expert.jpg" alt="">
+                
+                            <div class="modal-popup__desc">
+                                <h5>Журнал "Эксперт" - Карты кроются в деталях</h5>
+                                <p>
+                                    Статья о продукте HD-карт, созданных в Автономном транспорте Яндекса
+                                </p>
+                                <ul class="modal-popup__cat">
+                                    <li>Публикации</li>
+                                </ul>
+                            </div>
+                
+                            <a target="_blank" href="https://expert.ru/mnenie/karty-kroyutsya-v-detalyakh/" class="modal-popup__details">Статья</a>
+                        </div>
+                    </div> <!-- end modal -->
+
+                    <div id="modal-06" hidden>
+                        <div class="modal-popup">
+                            <img src="../images/portfolio/hdmap.jpg" alt="">
+                
+                            <div class="modal-popup__desc">
+                                <h5>Демо HD-map для автономного транспорта</h5>
+                                <p>Демонстрация процесса и инструментов для создания HD-карт</p>
+                                <ul class="modal-popup__cat">
+                                    <li>Управление продуктом</li>
+                                </ul>
+                            </div>
+                            <iframe src="https://drive.google.com/file/d/166xrIXCGGXipKOPE6NcR-UonA5cn62hi/preview" width="600" height="260" allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;" frameborder="0" allowfullscreen></iframe>
+                            <a target="_blank" href="" class="modal-popup__details">Смотреть видео</a>
+                        </div>
+                    </div> <!-- end modal -->
+
+                    <div id="modal-07" hidden>
+                        <div class="modal-popup">
+                            <img src="images/portfolio/Stepik_logotype.png" alt="">
+                
+                            <div class="modal-popup__desc">
+                                <h5>Обучение на Stepik</h5>
+                                <p>На платформе Stepik.org я прошел курсы по python, sql, javascript и другие. 
+                                    По ссылке вверху картинки можно перейти на мой профиль
+                                </p>
+                                <ul class="modal-popup__cat">
+                                    <li>Python</li>
+                                    <li>Sql</li>
+                                    <li>JavaScritp</li>
+                                </ul>
+                            </div>
+                
+                            <a target="_blank" href="https://stepik.org/users/43092682/certificates" class="modal-popup__details">Профиль на Stepik</a>
+                        </div>
+                    </div> <!-- end modal -->
+
+                    <div id="modal-08" hidden>
+                        <div class="modal-popup">
+                            <img src="images/portfolio/yandex.png" alt="">
+                
+                            <div class="modal-popup__desc">
+                                <h5>Обучение в Яндексе</h5>
+                                <p>
+                                    В Яндексе большой выбор внутреннего обучения для сотрудников.<br>
+                                    За время работы я проходил следующее обучение:<br><br>
+                                    - Школа техлидов от Я.Маркета<br>
+                                    - Курсы для руководителей<br>
+                                    - Школа фасилитации<br>
+                                    - Тренинги по сложными коммуникациям и конфликтам<br>
+                                    - Обучение BPMN<br>
+                                    - Школа менеджеров Яндеса<br>
+                                    - Python в Школе Анализа Данных
+                                </p>
+                                <ul class="modal-popup__cat">
+                                    <li>Управление продуктом</li>
+                                    <li>Управление командой</li>
+                                    <li>Софт скиллы</li>
+                                    <li>Python</li>
+                                </ul>
+                            </div>
+                
+                        </div>
+                    </div> <!-- end modal -->
+
+                    <div id="modal-09" hidden>
+                        <div class="modal-popup">
+                            <img src="images/portfolio/inlearn.jpg" alt="">
+                
+                            <div class="modal-popup__desc">
+                                <h5>Обучение на Linkedin</h5>
+                                <p>На платформе Linkedin Learning я проходил курсы посвященные упровлению продуктом, решению конфликтов, фасилитации встреч и др. </p>
+                                <ul class="modal-popup__cat">
+                                    <li>Управление продуктом</li>
+                                    <li>Софт скиллы</li>
+                                </ul>
+                            </div>
+                
+                            <a target="_blank" href="https://www.linkedin.com/in/alexey-ilin/details/certifications/" class="modal-popup__details">Перейти на Linkedin</a>
+                        </div>
+                    </div> <!-- end modal -->
+
+                    <div id="modal-10" hidden>
+                        <div class="modal-popup">
+                            <img src="images/portfolio/books.jpg" alt="">
+                
+                            <div class="modal-popup__desc">
+                                <h5>Книги</h5>
+                                <p>
+                                В этом разделе, я хочу поделиться книгами, которые прочитал для развития профессиональных навыков</p>
+                                    <p><a target="_blank" href="https://www.litres.ru/book/mihail-litvak/komandovat-ili-podchinyatsya-psihologiya-upravleniya-56445980/">Михаил Литвак "Командовать или подчиняться"</a></p>
+                                    <p><a target="_blank" href="https://www.litres.ru/book/ichak-adizes/idealnyy-rukovoditel-pochemu-im-nelzya-stat-i-chto-iz-etogo-s-6741350/">Ицхак Адизес "Идеальный руководитель: Почему им нельзя стать и что из этого следует"</a></p>
+                                    <p><a target="_blank" href="https://www.litres.ru/book/tom-demarko/deadline-roman-ob-upravlenii-proektami-138630/">Том ДеМарко "Deadline. Роман об управлении проектами"</a></p>
+                                    <p><a target="_blank" href="https://www.litres.ru/book/rid-hastings/nikakih-pravil-unikalnaya-kultura-netflix-70732414/">Рид Хастингс,
+                                        Эрин Мейер "Никаких правил. Уникальная культура Netflix"</a></p>
+                                    <p><a target="_blank" href="https://www.litres.ru/book/melissa-perri/product-management-bez-oshibok-gid-po-sozdaniu-upravleniu-i-67601328/">Мелисса Перри "Product Management без ошибок"</a></p>
+                                    <p><a target="_blank" href="https://www.litres.ru/book/genrih-altshuller-2/nayti-ideu-vvedenie-v-triz-teoriu-resheniya-izobretate-6149212/">Генрих Альтшуллер "ТРИЗ"</a></p>
+                                    <p><a target="_blank" href="https://www.litres.ru/book/genrih-altshuller-2/nayti-ideu-vvedenie-v-triz-teoriu-resheniya-izobretate-6149212/">Джон Кинг,
+                                        Дэйв Логан, Хэли Фишер-Райт "Лидер и племя. Пять уровней корпоративной культуры"</a></p>
+                                </p>
+                                <ul class="modal-popup__cat">
+                                    <li>Управление продуктом</li>
+                                    <li>Управление командой</li>
+                                    <li>Софт скиллы</li>
+                                </ul>
+                            </div>
+                
+                            <!-- <a href="" class="modal-popup__details">Project link</a> -->
+                        </div>
+                    </div> <!-- end modal -->
+
+
+                </div> <!-- end works-portfolio -->
+
+            <!-- </section> -->
+             <!-- end s-works -->
+
+        </main> <!-- end s-content -->
+
+     <!-- end -s-pagewrap -->
+
+
+    <!-- Java Script
+    ================================================== -->
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+          $(document).ready(function () {
+                var modalBodyHeight = $(window).height() * 0.7; // adjust as needed
+                $('.modal-popup__desc').css('max-height', modalBodyHeight);
+
+                $('.modal-popup__desc').on('click', function (event) {
+                    event.stopPropagation();
+                });
+            });
+    </script>
+
+</body>
+</html>

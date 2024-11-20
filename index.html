@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>Алексей Ильин</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.21.6/dist/css/uikit.min.css" />
+    
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.21.6/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.21.6/dist/js/uikit-icons.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- script
+    ================================================== -->
+    <script src="js/modernizr.js"></script>
+    <script src="js/pace.min.js"></script>
+
+    <script>
+
+    </script>
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+
+    <script src='https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.js'></script>
+    <link href='https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.css' rel='stylesheet' />
+
+    <style>
+        #map {
+            position: absolute;
+            width: 100%;
+            height: 800px;
+        }
+    
+        .infoi {
+            z-index: 10;
+        }
+        iframe[iframetag] {
+            border: none;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+        }
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 140px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 3px;
+            padding: 2px;
+            position: absolute;
+            z-index: 1;
+            bottom: -100%;
+            left: 10%;
+            margin-left: -75px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 12px;
+        }
+
+        .tooltip .tooltiptext::after {
+            content: "";
+            /* position: absolute; */
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #555 transparent transparent transparent;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+        .active{
+            border: '5px solid'
+        }
+
+        .sidebar {
+            transition: transform 1s;
+            z-index: 1;
+            position: absolute;
+            padding-left: 20px;
+            top: 80px;
+            width: 400px;
+            height: 470px;
+            display: none;
+        }
+        @media screen and (max-width:600px){
+            .sidebar {
+                max-width: 300px;
+                max-height: 400px;
+            }
+        }
+    </style>
+
+</head>
+
+<body id="top">
+
+    <div id="preloader">
+        <div id="loader"></div>
+    </div>
+
+    <!-- site header
+    ================================================== -->
+    <header class="s-header">
+
+        <nav class="header-nav-wrap">
+            <ul class="header-main-nav">
+                <li class="current"><a class="smoothscroll" href="#intro" title="intro"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a></li>
+                <li><a class="smoothscroll" href="#about" title="about">Обо мне</a></li>
+                <li><a class="smoothscroll" href="#workEducation" title="about">Опыт работы</a></li>
+                <li><a class="smoothscroll" href="#services" title="services">Квалификация</a></li>
+                <li><a class="smoothscroll" href="#works" title="works">Портфолио</a></li>
+                <li><a class="smoothscroll" href="#contact" title="contact us">Контакты</a></li>	
+            </ul>
+
+            <ul class="header-social">
+                <li><a href="https://t.me/Alexeykin13" target="_blank"><i class="fab fa-telegram-plane" aria-hidden="true"></i></a></li>
+                <li><a href="https://www.linkedin.com/in/alexey-ilin/" target="_blank"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a></li>
+                <li><a href="https://www.instagram.com/ilinlxy" target="_blank"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+                <p hidden id="email">alexey.ilin.13@gmail.com</p>
+                <li>
+                    <div class="tooltip">
+                        <a href="#" onclick="CopyToClipboard('email','emailTooltip');return false;" onmouseout="outFunc('emailTooltip')">
+                            <span class="tooltiptext" id="emailTooltip">Copy to clipboard</span>
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </li>
+                <p hidden id="phone">+79295413172</p>
+                <li>
+                    <div class="tooltip">
+                        <a href="#" onclick="CopyToClipboard('phone','phoneTooltip');return false;" onmouseout="outFunc('phoneTooltip')">
+                            <span class="tooltiptext" id="phoneTooltip">Copy to clipboard</span>
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+
+        <a class="header-menu-toggle" href="#"><span>Menu</span></a>
+
+    </header> <!-- end s-header -->
+
+    <!-- intro
+    ================================================== -->
+    <section id="intro" class="s-intro target-section">
+        <div class="row intro-content">
+
+            <div class="column large-9 mob-full intro-text">
+                <h3>Алексей Ильин</h3>
+                <h1>
+                    Менеджер продукта,<br>
+                    ГИС-эксперт
+                </h1>
+            </div>
+
+            <div class="intro-scroll">
+                <a href="#about" class="intro-scroll-link smoothscroll">
+                    Далее
+                </a>
+            </div>
+
+            <div class="intro-grid"></div>
+            <div class="intro-pic"></div>
+
+        </div> <!-- end row -->
+
+    </section> <!-- end intro -->
+
+    <!-- about
+    ================================================== -->
+    <section id="about" class="s-about target-section">
+
+        <div class="about-me">
+
+            <div class="row heading-block" data-aos="fade-up">
+                <div class="column large-full">
+                    <h2 class="section-heading">Обо мне</h2>
+                </div>
+            </div>
+
+            <div class="row about-me__content" data-aos="fade-up">
+                <div class="column large-full about-me__text">
+                    <p class="lead">Меня зовут Алексей Ильин.<br>
+                    Мой профессиональный опыт включает в себя управление проектами и продуктами в сфере IT, 
+                    автономного транспорта и геоинформационных технологий.<br>
+                    Для демонстрации своих навыков, я разработал этот сайт, код которого доступен на 
+                    <a href="https://github.com/alexeykinw/AlexeyIlin" target="_blank"><i class="fab fa-github"></i>GitHub</a>.
+                    </p>
+
+                    <p class="lead">Среди ключевых достижений в работе, я хочу выделить:
+                        <ul>
+                            <li>Успешное руководство проектами по созданию HD-карт для беспилотных автомобилей. </li>
+                            <li>Внедрение CI/CD процессов и реорганизации служб разработки.</li>
+                            <li>Проектирование архитектуры продукта, объединяющего разрозненные сервисы и инструменты. </li>
+                            <li>Внедрение и оптимизация Agile-процессов в командах разработки.</li>
+                            <li>Автоматизация рабочих процессов с использованием Python, SQL и JavaScript.</li>
+                        </ul>
+                    </p>
+                    <p>
+                        Хороший уровень технической грамотности позволяет глубоко погружаться в процессы разработки программного обеспечения, 
+                        а полученные во время дополнительного образования  знания эффективно применять
+                        различные методологии управления проектами, включая Kanban и подходы PMBoK.<br>
+                        Обладаю хорошими аналитическими навыками, работаю с BI-инструментами (Tableau, DataLens), проходил курсы по математической статистике.
+                    </p>
+                    <p>
+                        В управлением продуктом стараюсь использовать подходы, основанные на глубоком понимании потребностей пользователей, 
+                        анализе данных и постоянном стремлении к оптимизации процессов разработки. Нацелен на создание инновационных решений, 
+                        повышающих эффективность работы команд и удовлетворенность конечных пользователей.
+                    </p>
+                </div>
+            </div>
+           
+            <div class="row about-me__buttons">
+                <div class="column large-half tab-full" data-aos="fade-up">
+                    <a href="#contact" class="btn btn--stroke full-width">Связаться со мной</a>
+                </div>
+                <div class="column large-half tab-full" data-aos="fade-up">
+                    <a href="https://bit.ly/4ii1MZG" target="_blank" class="btn btn--primary full-width">Скачать CV</a> <!-- CV from yandex S3-->
+                </div>
+            </div>
+
+        </div> <!-- end about-me -->
+        <div id="workEducation" class="about-experience">
+
+            <div class="row heading-block" data-aos="fade-up">
+                <div class="column large-full">
+                    <h2 class="section-heading">Опыт работы</h2>
+                </div>
+            </div>
+
+            <div class="row about-experience__timeline">
+
+                <div class="column large-half tab-full" data-aos="fade-up">
+                    <div class="timeline">
+
+                        <div class="timeline__icon-wrap">
+                            <span class="timeline__icon timeline__icon--work"></span>
+                        </div>
+
+                        <div class="timeline__block">
+                            <div class="timeline__bullet"></div>
+                            <div class="timeline__header">
+                                <p class="timeline__timeframe">Февраль 2023 - Июль 2024</p>
+                                <h3 class="item-title">Яндекс</h3>
+                                <h5>Руководитель группы</h5>
+                            </div>
+                            <div class="timeline__desc">
+                                <p>
+                                    <ul>
+                                        <li>Руководил двумя группами,  отвечающими за создание HD-карт для роботов-доставщиков, беспилотного такси и беспилотных грузовиков</li>
+                                        <li>Разработал и реализовал стратегию развития HD-карт как продукта, совмещая роли руководителя группы и менеджера продукта</li>
+                                        <li>Создал комплексную систему документации, описывающую все процессы создания и обновления HD-карт</li>
+                                        <li>Внедрил систему метрик оценки эффективности продукта:<br>
+                                            - Определение метрики North Star<br>
+                                            - Построение дерева метрик<br>
+                                            - Определение метрик эффективности работы подразделения</li>
+                                        <li>Спроектировал и руководил разработкой ключевых инструментов:<br>
+                                            - Редактор для создания HD-карт<br>
+                                            - Инфраструктура хранения данных<br>
+                                            - Конвейер CI/CD для непрерывной интеграции и доставки обновлений<br>
+                                            - Универсальный формат данных, совместимый с другими пайплайнами</li>
+                                        <li>Инициировал и руководил внедрением технологий машинного обучения (ML) в процесс создания карт, что позволило:<br>
+                                            - Значительно увеличить объемы создаваемых карт при сохранении временных затрат<br>
+                                            - Снизить стоимость создания карт<br>
+                                            - Масштабировать процесс для удовлетворения потребностей проекта беспилотных грузовиков</li>
+                                    </ul>
+                                </p>
+                                <p>Ключевые достижения:
+                                    <ul>
+                                        <li>Сформировал роадмап развития продукта HD-карт</li>
+                                        <li>Снизил стоимость создания километра карты на 35% благодаря внедрению ML-технологий</li>
+                                        <li>Сократил время доставки изменений в продакшн в 2-3 раза</li>
+                                        <li>Снизил количество ошибок в данных на 30%</li>
+                                        <li>Увеличил скорость создания карт на 40%</li>
+                                        <li>Расширил типизацию объектов, описываемых данными HD-картами на 25%</li>
+                                    </ul>
+                                 </p>
+                            </div>
+                        </div>
+
+                        <div class="timeline__block">
+                            <div class="timeline__bullet"></div>
+                            <div class="timeline__header">
+                                <p class="timeline__timeframe">Август 2022 - Февраль 2023</p>
+                                <h3 class="item-title">ВкусВилл</h3>
+                                <h5>Менеджер по развитию ИТ</h5>
+                            </div>
+                            <div class="timeline__desc">
+                                <p id="cicdvvContent">Руководство проектом по внедрению CI/CD в командах разработки, имеющих разный флоу доставки кода в продакшн.
+                                    <ul>
+                                        <li>Сформировал целеполагание для проекта и обеспечил выделение ресурсов:<br>
+                                            - Проведение CustDev-а со всеми заинтересованными сторонами<br>
+                                            - Визуализация цифрами узких мест руководству и бизнес заказчикам<br>
+                                            - Фасилитация встреч и брейнштормов с разработчиками для формирования флоу будущей работы</li>
+                                        <li>Сделана дорожная карта проекта со сроками, ресурсами, рисками и прогнозами:<br>
+                                            - По результатам cust-dev-а создан беклог задач<br>
+                                            - С архитекторами была сформирована BPMN-схема нового флоу непрерывной интеграции и деплоя кода<br>
+                                            - Для обеспечения мониторинга исполнения задач, была сформирована система трекинга с элементами скрама: спринты, трекерные дашборды, ретроспективы</li>
+                                        <li>Созданы средства малой автоматизации:<br>
+                                            - Ботики в телеграме для рассылки информации или публикации в каналах(python)<br>
+                                            - Визуализация метрик проекта (rest api, python)<br>
+                                            - Прототипирование заказов к разработке<br>
+                                        </li>
+                                    </ul>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <div class="column large-half tab-full" data-aos="fade-up">
+                    <div class="timeline">
+
+                        <div class="timeline__icon-wrap">
+                            <span class="timeline__icon timeline__icon--work"></span>
+                        </div>
+
+                        <div class="timeline__block">
+                            <div class="timeline__bullet"></div>
+                            <div class="timeline__header">
+                                <p class="timeline__timeframe">Ноябрь 2018 - Август 2022</p>
+                                <h3 class="item-title">Яндекс</h3>
+                                <h5>Менеджер проектов</h5>
+                            </div>
+                            <div class="timeline__desc">
+                                <p>Ведение проектов по созданию HD-map для автономного транспорта, реорганизация картпроизводства в Геосервисах.
+                                    <ul>
+                                        <li>Управление проектами по разработке внутренних сервисов:<br>
+                                            - Сбор потребностей и болей пользователей сервиса<br>
+                                            - Проведение встреч с командами разработки и дизайна<br>
+                                            - Прототипирование и документирование фичей<br>
+                                            - Приоритезация разработки и лоббирование ресурсов</li>
+                                        <li>Проведение встреч, планирование и ретроспективы спринтов<br>
+                                            Благодаря внедрению элементов kanban удалось сделать более прозрачным планирование для стейкхолдеров, а также появились критерии оценки для сотрудников, исходя из освоенного объема запланированной работы за время итерации (спринта)  
+                                        </li>
+                                        <li>Сбор и агрегирование всей информации о ресурсах и планах: <br>
+                                            Учет ресурсов и контроль соблюдения сроков не имели единой точки входа для всех стекйхолдеров.<br>
+                                            В результате созданы инструменты UI для внесения и демонстрации учета ресурсов и сроков 
+                                        </li>
+                                        <li>Разработка инструментов визуализации для аналитики:<br>
+                                            - На платформе BI DataLens (Javascript (HighChasrts), SQL) разработаны дашборды с метриками<br>
+                                            - Диаграммы Ганта с отображением планов и автоматическим апдейтом фактических показателей<br>
+                                            - Дашборд учета ресурсов с возможностью администрирования<br>
+                                            - Дашборды с метриками работы подразделения<br>
+                                        </li>
+                                        <li>Автоматизация работы таск-трекера. (Python, SQL, Rest API).<br>
+                                            Средствами запуска кода по расписанию запускается сбор информации из баз данных и логов, после создаются задачи, 
+                                            автоматически назначаются на исполнителей в зависимости от их загрузки, 
+                                            настроены триггеры на соблюдение SLA и уведомления всем стейкхолдерам
+                                        </li>
+                                    </ul>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="timeline__block">
+                            <div class="timeline__bullet"></div>
+                            <div class="timeline__header">
+                                <p class="timeline__timeframe">Сентябрь 2015 - Ноябрь 2018</p>
+                                <h3 class="item-title">Геоцентр-Консалтинг</h3>
+                                <h5>Ведущий Картограф</h5>
+                            </div>
+                            <div class="timeline__desc">
+                                <p>
+                                    <ul>
+                                        <li>Осуществление технического руководства проектов, включающее в себя планирование этапов выполнения проекта, контроль за соблюдением сроков выполнения и сдачи заказчику, организация рабочей группы проекта</li>
+                                        <li>Проверка элементов картографической продукции на соответствие внутренним стандартам качества</li>
+                                        <li>Подготовка рабочих наборов данных для работы сотрудников отдела и подрядчиков</li>
+                                        <li>Разработка и написание технических заданий для работы подрядчиков</li>
+                                        <li>Оценка и проверка работы подрядчиков по созданию электронных карт и соответствию требованиям технического задания</li>
+                                        <li>Автоматизация рабочих процессов, путем создания скриптов и моделей средствами Arcpy и ModelBuilder</li>
+                                        <li>Создание и редактирование электронных географических карт</li>
+                                        <li>Усадка космических снимков, дешифрирование снимков различного разрешения. в автоматическом и ручном режиме</li>
+                                        <li>Работа по созданию графа дорожного движения</li>
+                                        <li>Обработка геоинформационных наборов данных</li>
+                                        <li>Векторизация картографических материалов</li>
+                                    </ul>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>            
+        </div> <!-- end about-experience -->
+
+    </section> <!-- end s-about -->
+
+
+    <section id="services" class="s-services ss-dark target-section">    
+        <div class="row heading-block heading-block--center" data-aos="fade-up">
+            <div class="column large-full">
+                <h2 class="section-heading section-heading--centerbottom">Квалификация</h2>
+            </div>
+        </div> <!-- end heading-block -->
+        <div class="row block-large-1-3 block-medium-1-2 block-tab-full">
+        <iframe src="training/index.html" iframetag frameborder="0" scrolling="no" onload="resizeIframe(this)"></iframe>
+        </div>
+    </section>
+
+    <!-- works
+    ================================================== -->
+    <section id="works" class="s-works target-section">
+        <div class="row heading-block heading-block--center" data-aos="fade-up">
+            <div class="column large-full">
+                <h2 class="section-heading section-heading--centerbottom">Портфолио</h2>
+
+            </div>
+        </div> <!-- end heading-block -->
+
+
+        <div class="uk-flex uk-flex-center" uk-height-placeholder="#map">
+            <div class="uk-container" id="map">
+                <!-- <div id="slidebar" class="uk-card uk-card-default uk-card-body uk-overflow-auto uk-animation-slide-left sidebar">
+                    <div class="uk-card-header">
+                        <h3 class="uk-card-title">Карта робокурьеров </h3>
+                    </div>
+                    <p>На карте можно увидеть зоны доставки роботов курьеров, опубликованные по ссылке ниже</p>
+                    <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="yandex/2005" data-width="80%" data-single></script>
+                </div> -->
+                
+                <div id="slidebar" class="uk-card uk-card-default uk-overflow-auto uk-animation-slide-left sidebar">
+                    <div class="uk-card-header">
+                        <h3 class="uk-margin-remove-top">Карта робокурьеров</h3>
+                    </div>
+                    <div class="uk-card-body">
+                        <p>На карте можно увидеть зоны доставки роботов курьеров, опубликованные по ссылке ниже</p>
+                        <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="yandex/2005" data-width="80%" data-single></script>
+                    </div>
+                </div>
+                
+                
+                <div class=" uk-overlay-default uk-position-bottom infoi">
+                    <div class="uk-slider-container">
+                        <div class=" uk-position-bottom uk-visible-toggle uk-light" tabindex="-1"
+                            uk-slider="clsActivated: uk-transition-active;">
+                            <div class="uk-slider-items uk-grid-small">
+                                <div class="uk-panel">
+                                    <img id="hdmap" class="but" src="images/portfolio/hdmap.jpg" style="width:300px;height:170px;border:5px solid">
+                                    <div class="uk-position-bottom uk-text-center">
+                                        <h4 class="uk-margin-remove" style="text-shadow: 2px 2px 4px #000000;">Создание продукта HD-map</h4><br>
+                                    </div>
+                                </div>
+                                <div class="uk-panel">
+                                    <img id="yasenevo" class="but" src="images/portfolio/yasenevo.jpg" style="width:300px;height:170px;">
+                                    <div class="uk-position-bottom uk-text-center">
+                                        <h4 class="uk-margin-remove" style="text-shadow: 2px 2px 4px #000000;">Беспилотное такси
+                                            в Ясенево</h4><br>
+                                    </div>
+                                </div>
+                                <div class="uk-panel">
+                                    <img id="robocity" class="but" src="images/portfolio/rover_city.jpg" style="width:300px;height:170px;">
+                                    <div class="uk-position-bottom uk-text-center">
+                                        <h4 class="uk-margin-remove" style="text-shadow: 2px 2px 4px #000000;">Роботы курьеры в
+                                            Сити</h4><br>
+                                    </div>
+                                </div>
+                                <div class="uk-panel">
+                                    <img id="michigan" class="but" src="images/portfolio/Yandex_robots_OSU.webp" style="width:300px;height:170px;">
+                                    <div class="uk-position-bottom uk-text-center">
+                                        <h4 class="uk-margin-remove" style="text-shadow: 2px 2px 4px #000000;">Роботы курьеры в Мичигане и OSU</h4><br>
+                                    </div>
+                                </div>
+                                <div class="uk-panel">
+                                    <img id="mlhdmap" class="but" src="images/portfolio/sdg_truck.webp" style="width:300px;height:170px;">
+                                    <div class="uk-position-bottom uk-text-center">
+                                        <h4 class="uk-margin-remove" style="text-shadow: 2px 2px 4px #000000;">ML в создании HD-map</h4><br>
+                                    </div>
+                                </div>
+                                <div class="uk-panel">
+                                    <img id="robomaps" class="but" src="images/portfolio/robomaps.png" style="object-fit: cover;width:300px;height:170px;">                                    
+                                    <div class="uk-position-bottom uk-text-center">
+                                        <h4 class="uk-margin-remove" style="text-shadow: 2px 2px 4px #000000;">Зоны доставки роботом</h4><br>
+                                    </div>
+                                </div>
+                                <div class="uk-panel">
+                                    <img id="polyana" class="but" src="images/portfolio/polyana.webp" style="width:300px;height:170px;">
+                                    <div class="uk-position-bottom uk-text-center">
+                                        <h4 class="uk-margin-remove" style="text-shadow: 2px 2px 4px #000000;">Роботы курьеры на Красной Поляне</h4><br>
+                                    </div>
+                                </div>
+                                <div class="uk-panel">
+                                    <img id="cicdvv" class="but" src="images/portfolio/vkusvill.png" style="width:300px;height:170px;">
+                                    <div class="uk-position-bottom uk-text-center">
+                                        <h4 class="uk-margin-remove" style="text-shadow: 2px 2px 4px #000000;">Проектирование CI/CD во ВкусВилле</h4><br>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="uk-slidenav-large uk-position-center-left" style="color:#ffffff;" href
+                                uk-slidenav-previous uk-slider-item="previous"></a>
+                            <a class="uk-slidenav-large uk-position-center-right" style="color:#ffffff;" href uk-slidenav-next
+                                uk-slider-item="next"></a>
+        
+                            <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
+        
+                        </div>
+                    </div>
+                    <div id="mainModal">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section> <!-- end s-work -->
+    
+    <!-- contact
+    ================================================== -->
+    <section id="contact" class="s-contact ss-dark target-section">
+
+        <div class="row heading-block" data-aos="fade-up">
+            <div class="column large-full">
+                <h2 class="section-heading">Контакты</h2>
+            </div>
+        </div>
+
+        <div class="row contact-main" data-aos="fade-up">
+            <div class="column large-full">
+                <p class="contact-email">
+                    <a href="mailto:#0">alexey.ilin.13@gmail.com</a>
+                </p>
+
+                <p class="section-desc">
+                С удовольствием выслушаю ваши идеи и предложу свою экспертизу.<br>
+                Давайте работать вместе и достигать впечатляющих результатов!
+                </p>
+            </div>
+        </div>
+
+        <div class="row contact-infos" data-aos="fade-up" data-aos-anchor=".contact-main">
+
+            <div class="column large-5 medium-full contact-phone">
+                <h4>Позвонить мне</h4>
+                <a href="tel:+79295413172">+7 929 541 31 72</a>
+            </div>
+
+            <div class="column large-7 medium-full contact-social">
+                <h4>Социальные сети</h4>
+                <ul>
+                    <li><a href="https://t.me/Alexeykin13" target="_blank">Telegram</a></li>
+                    <li><a href="https://www.linkedin.com/in/alexey-ilin/" target="_blank">Linkedin</a></li>
+                    <li><a href="https://www.instagram.com/ilinlxy" target="_blank">Instagram</a></li>
+                </ul>
+            </div>
+
+        </div> <!-- end contact-infos -->
+
+
+
+
+    <!-- footer
+    ================================================== -->
+    <footer>
+        <div class="row">
+            <div class="column large-full ss-copyright">
+                <span>© Copyright Epitome 2019</span> 
+                <span>Design by <a target="_blank" href="https://www.styleshout.com/">StyleShout</a></span>
+                <span>© Copyright ALexey Ilin 2024</span> 
+                <span>Source code <a target="_blank" href="https://github.com/alexeykinw/AlexeyIlin">GitHub</a></span>
+            </div>            
+
+            <div class="ss-go-top">
+                <a class="smoothscroll" title="Back to Top" href="#intro"></a>
+            </div>
+        </div>
+    </footer>
+</section> <!-- end s-contact -->
+
+    <!-- photoswipe background
+    ================================================== -->
+    <div aria-hidden="true" class="pswp" role="dialog" tabindex="-1">
+
+        <div class="pswp__bg"></div>
+        <div class="pswp__scroll-wrap">
+
+            <div class="pswp__container">
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+            </div>
+
+            <div class="pswp__ui pswp__ui--hidden">
+                <div class="pswp__top-bar">
+                    <div class="pswp__counter"></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button> <button class="pswp__button pswp__button--share" title=
+                    "Share"></button> <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button> <button class="pswp__button pswp__button--zoom" title=
+                    "Zoom in/out"></button>
+                    <div class="pswp__preloader">
+                        <div class="pswp__preloader__icn">
+                            <div class="pswp__preloader__cut">
+                                <div class="pswp__preloader__donut"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                    <div class="pswp__share-tooltip"></div>
+                </div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button> <button class="pswp__button pswp__button--arrow--right" title=
+                "Next (arrow right)"></button>
+                <div class="pswp__caption">
+                    <div class="pswp__caption__center"></div>
+                </div>
+            </div>
+
+        </div>
+
+    </div><!-- end photoSwipe background -->
+
+
+    <!-- Java Script
+    ================================================== -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/mapligre.js"></script>
+
+</body>
